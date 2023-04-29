@@ -2,18 +2,18 @@ use aws_sdk_secretsmanager::{config::Region, Client};
 
 #[tokio::main]
 async fn main() {
-    let region = std::env::var("AWS_REGION").expect("AWS_REGION is not set");
-    let aws_config = aws_config::from_env()
-        .region(Region::new(region))
-        .load()
-        .await;
+    let region = std::env::var("AWS_REGION").ok();
+    let config_loader = aws_config::from_env();
+    let config_loader = match region {
+        Some(region) => config_loader.region(Region::new(region)),
+        None => config_loader,
+    };
+    let aws_config = config_loader.load().await;
     let client = Client::new(&aws_config);
 
     let secret_id = std::env::var("AWS_SECRET_ID").expect("AWS_SECRET_ID is not set");
 
-    let resp = client.get_secret_value().secret_id(secret_id).send().await;
-
-    let resp = resp.unwrap();
+    let resp = client.get_secret_value().secret_id(secret_id).send().await.expect("request for secrets failed");
 
     if resp.secret_binary().is_some() {
         panic!("secret_binary is not supported");
