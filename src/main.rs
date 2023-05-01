@@ -1,15 +1,9 @@
-use aws_sdk_secretsmanager::{config::Region, Client};
+use aws_sdk_secretsmanager::Client;
 use std::env;
 
 #[tokio::main]
 async fn main() {
-    let region = std::env::var("AWS_REGION").ok();
-    let config_loader = aws_config::from_env();
-    let config_loader = match region {
-        Some(region) => config_loader.region(Region::new(region)),
-        None => config_loader,
-    };
-    let aws_config = config_loader.load().await;
+    let aws_config = aws_config::from_env().load().await;
     let client = Client::new(&aws_config);
     
     let secret_id = env::var("AWS_SECRET_ID").expect("AWS_SECRET_ID is not set");
