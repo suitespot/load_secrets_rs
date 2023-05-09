@@ -18,7 +18,8 @@ async fn main() {
     match secret_json {
         Ok(secret_obj) => {
             for (key, value) in secret_obj {
-                println!("export {}={};", key, value);
+                let value_str = value.as_str().unwrap_or("");
+                env::set_var(key, value_str);
             }
         }
         Err(_) => {
