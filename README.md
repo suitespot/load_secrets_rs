@@ -2,12 +2,12 @@
 
 Load AWS secrets and produce an evalable output
 
-# Usage 
+# Usage
 
 Run the command in your `Dockerfile` before starting the main application code.
 
 ```
-if [ ! -z "$AWS_SECRET_ID" ]; then
+if [ ! -z "$AWS_SECRETS_ID" ]; then
   eval `load_secrets`
 fi
 ```
@@ -15,6 +15,7 @@ fi
 # Add to containers
 
 Add to your `Dockerfile`
+
 ```
 RUN GIT_TAG=v0.2.0 curl -L -o /bin/load_secrets https://github.com/suitespot/load_secrets_rs/releases/download/$GIT_TAG/load_secrets_x86_64-unknown-linux-musl && chmod +x /bin/load_secrets
 ```
