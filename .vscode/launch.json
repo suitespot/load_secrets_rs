@@ -1,0 +1,51 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'load_secrets'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=load_secrets",
+          "--package=load_secrets"
+        ],
+        "filter": {
+          "name": "load_secrets",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "env": {
+        "AWS_SECRETS_ID": "qa/api",
+        "AWS_ACCESS_KEY_ID":"ASIAYKWYRXP4VSXXDZOP",
+        "AWS_SECRET_ACCESS_KEY":"biMJF03cMYlZPMiAkBW/sNHdBm/n6QgdjcidR6vm",
+        "AWS_SESSION_TOKEN":"IQoJb3JpZ2luX2VjEGoaDGNhLWNlbnRyYWwtMSJHMEUCIFc4AK5nFpMm7v/gv0isZ5N7ngiWSNxuGSlq4p5mV1wqAiEAzyyVCRtil50LycoiCnFPQQ3bEesH4qHJhUFvdO1/o1wqtQMIg///////////ARAEGgw1NzI3NTg1MzkyNTciDNFl9dV+RE1dEISvIiqJAy+dMe/jhrPHRx67tw6HbwxzxmyEgWZFrkqAIDU99SPyQXO/sKmhCNAycXhu+5aAac7gbNC7lyUEFOQIIHZlQxKaRIe7LkQfcOCTD4apvkTOac8boVjIMzxlEqbRhS0MNLHBiT2f5P5IC7+eo8PWA5S54EcO4RQQUxtVzJrZetdLCRyXdac1lRCUcNwhCcNSn3886fFRhJEmaRRuL8WfRdxxnhCh9D1tvMmm3s2RTuBf0jhsQr5t9jyW9/vpoDVEq3x2eWmF2UTEP9K61A+3nqMh/K1DlQkXlK12sOnbcl1QN+kx9XW/crznmWo55r7VYvrlXR2AmwIpQX3+2LGjSJIv0FCaRlWD5QDEVkQuoHwQqvg2HhdkMTS8ncm4C6aYeHrB4x7sEM2YG+FOykvVOV6L5HE7z2v6ftvg0EfiqEqtXiHVQXiBhW2tUb0V0QTSW+e01BG/eHEUUzCwc7WFe3gZJUyZ+8xSvTqe/KzcEFJuBx4IQifY0AXAN9ooR8UYQeTid7DRIDtyvDCT8euiBjqmAQgyM+/bLUfEmkZ2vlFVmGyW64jqVUW59xw2p08mdqCJ49VwE9RhOMLImKFkCIZdeyiujFOIx7HvyaxFmlkZrum9B0J8JKffc1Qwc4cN4+JEZFu0OF4vUB+PyXNaD+kHJ6nLmxWCuqas3aBciF7vfZxbGnWRQjcPumfoZ2QFKzI/Dl+uP+v7pFEDzV+XGnqcxhb0oEo2k6NmqhKL86GkkZtjhcojknk=",
+      },
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'load_secrets'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=load_secrets",
+          "--package=load_secrets"
+        ],
+        "filter": {
+          "name": "load_secrets",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

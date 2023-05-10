@@ -1,5 +1,6 @@
 use aws_sdk_secretsmanager::Client;
 use std::env;
+use setenv::get_shell;
 
 #[tokio::main]
 async fn main() {
@@ -17,9 +18,10 @@ async fn main() {
     let secret_json = serde_json::from_str::<serde_json::Map<String, serde_json::Value>>(&secret);
     match secret_json {
         Ok(secret_obj) => {
+            let shell = get_shell();
             for (key, value) in secret_obj {
                 let value_str = value.as_str().unwrap_or("");
-                env::set_var(key, value_str);
+                shell.setenv(key, value_str);
             }
         }
         Err(_) => {

@@ -17,7 +17,7 @@ fi
 Add to your `Dockerfile`
 
 ```
-RUN GIT_TAG=v0.4.0 curl -L -o /bin/load_secrets https://github.com/suitespot/load_secrets_rs/releases/download/$GIT_TAG/load_secrets_x86_64-unknown-linux-musl && chmod +x /bin/load_secrets
+RUN GIT_TAG=v0.5.0 curl -L -o /bin/load_secrets https://github.com/suitespot/load_secrets_rs/releases/download/$GIT_TAG/load_secrets_x86_64-unknown-linux-musl && chmod +x /bin/load_secrets
 ```
 
 # Build
