@@ -695,12 +695,13 @@ checksum = "6a987beff54b60ffa6d51982e1aa1146bc42f19bd26be28b0586f252fccf5317"
 
 [[package]]
 name = "load_secrets"
-version = "0.3.0"
+version = "0.5.0"
 dependencies = [
  "aws-config",
  "aws-sdk-secretsmanager",
  "serde",
  "serde_json",
+ "setenv",
  "tokio",
 ]
 
@@ -1040,6 +1041,12 @@ dependencies = [
  "ryu",
  "serde",
 ]
+
+[[package]]
+name = "setenv"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d5ef81b975260e7b1f2d73d570b03f59a71d468c1a7723a9262f2680653cb29e"
 
 [[package]]
 name = "sha2"
