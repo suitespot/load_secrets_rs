@@ -13,7 +13,7 @@ opt-level = "z"
 
 [dependencies]
 aws-config = "0.55.0"
-aws-sdk-secretsmanager = "0.26.0"
+aws-sdk-secretsmanager = "0.27.0"
 serde = { version = "1.0.160", features = ["derive"] }
 serde_json = { version = "1.0.96", features = ["raw_value"] }
 setenv = "0.1.2"
